@@ -12,7 +12,7 @@ import (
 	selfupdate "github.com/creativeprojects/go-selfupdate"
 )
 
-const version = "0.1.3"
+const version = "0.1.4"
 const repoName = "MyMarvel/goreleasertest"
 const delay = 5 * time.Second
 
