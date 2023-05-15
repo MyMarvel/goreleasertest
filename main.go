@@ -14,7 +14,7 @@ import (
 
 const version = "0.1.4"
 const repoName = "MyMarvel/goreleasertest"
-const delay = 5 * time.Second
+const delay = 15 * time.Second
 
 func main() {
 	for {
