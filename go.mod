@@ -2,10 +2,11 @@ module goreleasertest
 
 go 1.19
 
+require github.com/creativeprojects/go-selfupdate v1.1.0
+
 require (
 	code.gitea.io/sdk/gitea v0.15.1 // indirect
 	github.com/Masterminds/semver/v3 v3.2.1 // indirect
-	github.com/creativeprojects/go-selfupdate v1.1.0 // indirect
 	github.com/golang/protobuf v1.5.3 // indirect
 	github.com/google/go-github/v30 v30.1.0 // indirect
 	github.com/google/go-querystring v1.1.0 // indirect
