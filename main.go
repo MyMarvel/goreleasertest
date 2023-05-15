@@ -12,8 +12,9 @@ import (
 	selfupdate "github.com/creativeprojects/go-selfupdate"
 )
 
-const version = "0.0.1"
+const version = "0.1.2"
 const repoName = "MyMarvel/goreleasertest"
+const delay = 5 * time.Second
 
 func main() {
 	for {
@@ -22,7 +23,7 @@ func main() {
 			log.Fatalln(err)
 		}
 		fmt.Println(version)
-		time.Sleep(3 * time.Second)
+		time.Sleep(delay)
 	}
 }
 
