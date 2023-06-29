@@ -143,6 +143,7 @@ func RestartSelf() error {
     }
     args := os.Args
     env := os.Environ()
+	fmt.Println("Restarting " + self + "...")
     // Windows does not support exec syscall.
     if runtime.GOOS == "windows" {
         cmd := exec.Command(self, args[1:]...)
