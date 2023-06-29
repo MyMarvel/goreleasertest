@@ -33,7 +33,7 @@ func update2(version string) error {
 	selfupdate.SetLogger(log.New(os.Stdout, "", 0))
 
 	source, err := selfupdate.NewGiteaSource(selfupdate.GiteaConfig{
-		BaseURL: "http://localhost:3000",
+		BaseURL: "http://host.docker.internal:3000",
 		APIToken: "45ea01a6c677552ea94d557a35a2fd4afd32d218", // manually created "Applications" token /user/settings/applications
 	})
 	if err != nil {
@@ -97,10 +97,10 @@ func update3(version string) error {
 }
 
 func update(version string) error {
-	err := os.Remove(".goreleasertest.exe.old")
-	if err != nil {
-		return err
-	}
+	//err := os.Remove(".goreleasertest.exe.old")
+	//if err != nil {
+//		return err
+//	}
 
 	selfupdate.SetLogger(log.New(os.Stdout, "", 0))
 	latest, found, err := selfupdate.DetectLatest(context.Background(), selfupdate.ParseSlug("MyMarvel/goreleasertest"))
