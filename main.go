@@ -20,9 +20,11 @@ const delay = 60 * time.Second
 
 func main() {
 	for {
-		fmt.Println("Before update")
+		fmt.Println("Before update, curr version " + version)
 		os.Remove(".goreleasertest.exe.old")
+		os.Remove(".goreleasertest.exe.new")
 		os.Remove(".goreleasertest.old")
+		os.Remove(".goreleasertest.new")
 		err := update(version)
 		if err != nil {
 			log.Fatalln(err)
