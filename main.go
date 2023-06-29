@@ -6,7 +6,9 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"os/exec"
 	"runtime"
+	"syscall"
 	"time"
 
 	selfupdate "github.com/creativeprojects/go-selfupdate"
@@ -121,7 +123,34 @@ func update(version string) error {
 		return err
 	}
 	log.Printf("Successfully updated to version %s", re.Version())
-	//os.Exit(0)
+	
+	err = RestartSelf()
+	if err != nil {
+		return err
+	}
 
 	return nil
+}
+
+func RestartSelf() error {
+    self, err := os.Executable()
+    if err != nil {
+        return err
+    }
+    args := os.Args
+    env := os.Environ()
+    // Windows does not support exec syscall.
+    if runtime.GOOS == "windows" {
+        cmd := exec.Command(self, args[1:]...)
+        cmd.Stdout = os.Stdout
+        cmd.Stderr = os.Stderr
+        cmd.Stdin = os.Stdin
+        cmd.Env = env
+        err := cmd.Run()
+        if err == nil {
+            os.Exit(0)
+        }
+        return err
+    }
+    return syscall.Exec(self, args, env)
 }
