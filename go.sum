@@ -32,12 +32,6 @@ github.com/hashicorp/go-version v1.6.0 h1:feTTfFNnjP967rlCxM/I9g701jU+RN74YKx2mO
 github.com/hashicorp/go-version v1.6.0/go.mod h1:fltr4n8CU8Ke44wwGCBoEymUuxUHl09ZGVZPK5anwXA=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
-github.com/radovskyb/gobeat v0.0.0-20161025074804-a89b5364e9ec h1:5ydL2Vd8DEyslb+mLiw5CDGBmSfz4x8E60/Dyy7WpqE=
-github.com/radovskyb/gobeat v0.0.0-20161025074804-a89b5364e9ec/go.mod h1:TfIjMnvy0X+vR8NEj8NM1AbISSqK+1YogwAinFneOHY=
-github.com/radovskyb/process v0.0.0-20170314014215-19aa1db15317 h1:bmkEs25SnJ41B2vHH7bxebksZHuN2+iezMrVkCrmlMc=
-github.com/radovskyb/process v0.0.0-20170314014215-19aa1db15317/go.mod h1:/hvqp5J//A5xwqwcfnmovpinEXmMNK3vyekml9GI8MM=
-github.com/slayer/autorestart v0.0.0-20170706172547-5ebd91f955ae h1:hnJJroq/kooxO2jUKDc8KXxj8tilWvOlD0hzDDv05ss=
-github.com/slayer/autorestart v0.0.0-20170706172547-5ebd91f955ae/go.mod h1:p+QQKBy7tS+myk+y3sgnAKx4gUtD/Q9Z6KEd77cLzWY=
 github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
 github.com/stretchr/testify v1.2.2/go.mod h1:a8OnRcib4nhh0OaRAV+Yts87kKdq0PP7pXfy6kDkUVs=
 github.com/stretchr/testify v1.4.0/go.mod h1:j7eGeouHqKxXV5pUuKE4zz7dFj8WfuZ+81PSLYec5m4=
