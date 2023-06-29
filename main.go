@@ -14,7 +14,7 @@ import (
 	selfupdate "github.com/creativeprojects/go-selfupdate"
 )
 
-const version = "0.2.17"
+const version = "0.2.18"
 const repoName = "test/c2"
 const delay = 60 * time.Second
 
@@ -25,7 +25,6 @@ func main() {
 		os.Remove(".goreleasertest.exe.new")
 		os.Remove(".goreleasertest.old")
 		os.Remove(".goreleasertest.new")
-		os.Exit(0)
 		err := update(version)
 		if err != nil {
 			log.Fatalln(err)
