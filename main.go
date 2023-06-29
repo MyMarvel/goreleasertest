@@ -12,7 +12,7 @@ import (
 	selfupdate "github.com/creativeprojects/go-selfupdate"
 )
 
-const version = "0.1.7"
+const version = "0.1.6"
 const repoName = "test/c2"
 const delay = 60 * time.Second
 
@@ -30,6 +30,8 @@ func main() {
 }
 
 func update2(version string) error {
+	selfupdate.SetLogger(log.New(os.Stdout, "", 0))
+
 	source, err := selfupdate.NewGiteaSource(selfupdate.GiteaConfig{
 		BaseURL: "http://localhost:3000",
 		APIToken: "45ea01a6c677552ea94d557a35a2fd4afd32d218", // manually created "Applications" token /user/settings/applications
@@ -95,6 +97,12 @@ func update3(version string) error {
 }
 
 func update(version string) error {
+	err := os.Remove(".goreleasertest.exe.old")
+	if err != nil {
+		return err
+	}
+
+	selfupdate.SetLogger(log.New(os.Stdout, "", 0))
 	latest, found, err := selfupdate.DetectLatest(context.Background(), selfupdate.ParseSlug("MyMarvel/goreleasertest"))
 	if err != nil {
 		return fmt.Errorf("error occurred while detecting version: %w", err)
@@ -113,5 +121,7 @@ func update(version string) error {
 		return err
 	}
 	log.Printf("Successfully updated to version %s", re.Version())
+	//os.Exit(0)
+
 	return nil
 }

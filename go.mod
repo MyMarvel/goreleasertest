@@ -13,6 +13,9 @@ require (
 	github.com/hashicorp/go-cleanhttp v0.5.2 // indirect
 	github.com/hashicorp/go-retryablehttp v0.7.2 // indirect
 	github.com/hashicorp/go-version v1.6.0 // indirect
+	github.com/radovskyb/gobeat v0.0.0-20161025074804-a89b5364e9ec // indirect
+	github.com/radovskyb/process v0.0.0-20170314014215-19aa1db15317 // indirect
+	github.com/slayer/autorestart v0.0.0-20170706172547-5ebd91f955ae // indirect
 	github.com/ulikunitz/xz v0.5.11 // indirect
 	github.com/xanzy/go-gitlab v0.83.0 // indirect
 	golang.org/x/crypto v0.9.0 // indirect
