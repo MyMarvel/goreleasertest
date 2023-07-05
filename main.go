@@ -14,7 +14,7 @@ import (
 	selfupdate "github.com/creativeprojects/go-selfupdate"
 )
 
-const version = "0.2.21"
+const version = "0.2.22"
 const repoName = "test/c2"
 const delay = 60 * time.Second
 
