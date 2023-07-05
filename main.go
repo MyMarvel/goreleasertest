@@ -14,26 +14,26 @@ import (
 	selfupdate "github.com/creativeprojects/go-selfupdate"
 )
 
-const version = "0.2.23"
+const version = "0.2.24"
 const repoName = "test/c2"
 const delay = 60 * time.Second
 
 func main() {
 	for {
 		fmt.Println("Before update, curr version " + version)
-		os.Remove(".goreleasertest.exe.old")
-		os.Remove(".goreleasertest.exe.new")
-		os.Remove(".goreleasertest.old")
-		os.Remove(".goreleasertest.new")
+		//os.Remove(".goreleasertest.exe.old")
+		//os.Remove(".goreleasertest.exe.new")
+		//os.Remove(".goreleasertest.old")
+		//os.Remove(".goreleasertest.new")
 		err := update(version)
 		if err != nil {
 			log.Fatalln(err)
 		}
 		fmt.Println(version)
-		os.Remove(".goreleasertest.exe.old")
-		os.Remove(".goreleasertest.exe.new")
-		os.Remove(".goreleasertest.old")
-		os.Remove(".goreleasertest.new")
+		//os.Remove(".goreleasertest.exe.old")
+		//os.Remove(".goreleasertest.exe.new")
+		//os.Remove(".goreleasertest.old")
+		//os.Remove(".goreleasertest.new")
 		time.Sleep(delay)
 		fmt.Println("After sleep")
 	}
@@ -112,7 +112,7 @@ func update(version string) error {
 //		return err
 //	}
 
-	selfupdate.SetLogger(log.New(os.Stdout, "", 0))
+	//selfupdate.SetLogger(log.New(os.Stdout, "", 0))
 	latest, found, err := selfupdate.DetectLatest(context.Background(), selfupdate.ParseSlug("MyMarvel/goreleasertest"))
 	if err != nil {
 		return fmt.Errorf("error occurred while detecting version: %w", err)
@@ -135,7 +135,7 @@ func update(version string) error {
 	if err != nil {
 		return err
 	}
-	log.Printf("Successfully updated to version %s", re.Version())
+	log.Printf("Successfully updated to version %s, restarting...", re.Version())
 	
 	err = RestartSelf(currExec)
 	if err != nil {
