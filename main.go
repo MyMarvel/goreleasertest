@@ -14,7 +14,7 @@ import (
 	selfupdate "github.com/creativeprojects/go-selfupdate"
 )
 
-const version = "0.2.20"
+const version = "0.2.21"
 const repoName = "test/c2"
 const delay = 60 * time.Second
 
@@ -126,23 +126,29 @@ func update(version string) error {
 		return nil
 	}
 
+    currExec, err := os.Executable()
+    if err != nil {
+        return err
+    }
+
 	re, err := selfupdate.UpdateSelf(context.Background(), version, selfupdate.ParseSlug("MyMarvel/goreleasertest"))
 	if err != nil {
 		return err
 	}
 	log.Printf("Successfully updated to version %s", re.Version())
 	
-	err = RestartSelf()
+	err = RestartSelf(currExec)
 	if err != nil {
 		return err
 	}
 
+	log.Printf("Bye!")
 	os.Exit(0)
 
 	return nil
 }
 
-func RestartSelf() error {
+func RestartSelf(originalFilename string) error {
     self, err := os.Executable()
     if err != nil {
         return err
@@ -152,7 +158,7 @@ func RestartSelf() error {
 	fmt.Println("Restarting " + self + "...")
     // Windows does not support exec syscall.
     if runtime.GOOS == "windows" {
-        cmd := exec.Command(self, args[1:]...)
+        cmd := exec.Command(originalFilename, args[1:]...)
         cmd.Stdout = os.Stdout
         cmd.Stderr = os.Stderr
         cmd.Stdin = os.Stdin
@@ -163,5 +169,5 @@ func RestartSelf() error {
         }
         return err
     }
-    return syscall.Exec(self, args, env)
+    return syscall.Exec(originalFilename, args, env)
 }
